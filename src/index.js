@@ -68,7 +68,7 @@ app.post('/sub',(req,res)=>{
     res.send( {  
       status: "failure",
       message: "Invalid data types"  ,
-      sum: undefined
+      difference: undefined
     });
     return;
   }
@@ -77,7 +77,7 @@ app.post('/sub',(req,res)=>{
      res.send({
        status: "error",
        message:"Overflow",
-       sum: undefined
+       difference: undefined
      });
      return;
   }
@@ -86,7 +86,7 @@ app.post('/sub',(req,res)=>{
     res.send({
       status: "error",
       message:"Underflow",
-      sum: undefined
+      difference: undefined
     });
     return;
   }
@@ -121,7 +121,7 @@ app.post('/multiply',(req,res)=>{
      res.send({
        status: "error",
        message:"Overflow",
-       sum: undefined
+       result: undefined
      });
      return;
   }
@@ -130,7 +130,7 @@ app.post('/multiply',(req,res)=>{
     res.send({
       status: "error",
       message:"Underflow",
-      sum: undefined
+      result: undefined
     });
     return;
   }
@@ -147,13 +147,13 @@ app.post('/multiply',(req,res)=>{
   app.post('/divide',(req,res)=>{
     let num1=(req.body.num1);
     let num2=req.body.num2;
-    let result=parseFloat(num1)/parseFloat(num2);
+    let product=parseFloat(num1)/parseFloat(num2);
   console.log(result);
     if (isNaN(num1)|| isNaN(num2)){
       res.send( {  
         status: "failure",
         message: "Invalid data types"  ,
-        sum: undefined
+        result: undefined
       });
       return;
     }
@@ -162,7 +162,7 @@ app.post('/multiply',(req,res)=>{
       res.send({
         status: "error",
         message:"Cannot divide by zero",
-        sum: undefined
+        result: undefined
       });
       return;
     }
@@ -171,7 +171,7 @@ app.post('/multiply',(req,res)=>{
        res.send({
          status: "error",
          message:"Overflow",
-         sum: undefined
+         result: undefined
        });
        return;
     }
@@ -180,7 +180,7 @@ app.post('/multiply',(req,res)=>{
       res.send({
         status: "error",
         message:"Underflow",
-        sum: undefined
+        result: undefined
       });
       return;
     }
@@ -189,7 +189,7 @@ app.post('/multiply',(req,res)=>{
       res.send({
         status:"success ",
         message: "the division of given two numbers",
-        result: result
+        result: product
       });
     }
   
