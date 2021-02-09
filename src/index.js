@@ -15,11 +15,12 @@ app.use(bodyParser.json())
 app.get('/',(req,res)=>{
   res.send("Hello world!");
 });
+
 app.post('/add',(req,res)=>{
   let num1=(req.body.num1);
   let num2=req.body.num2;
   let result=parseFloat(num1)+parseFloat(num2);
-
+  
   if (isNaN(num1)|| isNaN(num2)){
     res.send( {  
       status: "failure",
@@ -27,36 +28,27 @@ app.post('/add',(req,res)=>{
       sum: undefined
     });
     return;
-  }
-
-  else if (num1>1000000 || num2>1000000 ||result>1000000){
+  } else if (num1>1000000 || num2>1000000 ||result>1000000){
      res.send({
        status: "error",
        message:"Overflow",
        sum: undefined
      });
      return;
-  }
-
-  else if (num1<-1000000 || num2<-1000000 ||result<-1000000){
+  } else if (num1<-1000000 || num2<-1000000 ||result<-1000000){
     res.send({
       status: "error",
       message:"Underflow",
       sum: undefined
     });
     return;
-  }
-  
-  else {
+  } else {
     res.send({
-      status:"success ",
+      status:"success",
       message: "the sum of given two numbers",
       sum: result
     });
   }
-
-
-
 });
 
 app.post('/sub',(req,res)=>{
@@ -106,8 +98,7 @@ app.post('/sub',(req,res)=>{
 app.post('/multiply',(req,res)=>{
   let num1=(req.body.num1);
   let num2=req.body.num2;
-  let result=parseFloat(num1)*parseFloat(num2);
-
+  let product=(parseFloat(num1)*parseFloat(num2));
   if (isNaN(num1)|| isNaN(num2)){
     res.send( {  
       status: "failure",
@@ -115,86 +106,62 @@ app.post('/multiply',(req,res)=>{
       result: undefined
     });
     return;
-  }
-
-  else if (num1>1000000 || num2>1000000 ||result>1000000){
+  } else if (num1>1000000 || num2>1000000 ){
      res.send({
        status: "error",
        message:"Overflow",
        result: undefined
      });
      return;
-  }
-
-  else if (num1<-1000000 || num2<-1000000 ||result<-1000000){
+  } else if (num1<-1000000 || num2<-1000000 ){
     res.send({
       status: "error",
       message:"Underflow",
       result: undefined
     });
     return;
-  }
-  
-  else {
+  } else {
     res.send({
       status:"success ",
       message: "the product of given two numbers",
-      result: result
+      result: product
     });
   }
 });
 
-  app.post('/divide',(req,res)=>{
-    let num1=(req.body.num1);
-    let num2=req.body.num2;
-    let product=parseFloat(num1)/parseFloat(num2);
-  console.log(result);
-    if (isNaN(num1)|| isNaN(num2)){
-      res.send( {  
-        status: "failure",
-        message: "Invalid data types"  ,
-        result: undefined
-      });
-      return;
-    }
-
-    else if(parseFloat(num2)===0){
-      res.send({
-        status: "error",
-        message:"Cannot divide by zero",
-        result: undefined
-      });
-      return;
-    }
-  
-   else if (num1>1000000 || num2>1000000 ){
-       res.send({
-         status: "error",
-         message:"Overflow",
-         result: undefined
-       });
-       return;
-    }
-  
-    else if (num1<-1000000 || num2<-1000000 ){
-      res.send({
-        status: "error",
-        message:"Underflow",
-        result: undefined
-      });
-      return;
-    }
-    
-    else {
-      res.send({
-        status:"success ",
-        message: "the division of given two numbers",
-        result: product
-      });
-    }
-  
-  });
-  
+app.post('/divide',(req,res)=>{
+  let num1=(req.body.num1);
+  let num2=req.body.num2;
+  let division=(parseFloat(num1)/parseFloat(num2));
+  if (isNaN(num1)|| isNaN(num2)){
+    res.send( {  
+      status: "failure",
+      message: "Invalid data types"  ,
+      result:undefined
+    });
+    return;
+  } else if (num1>1000000 || num2>1000000 ){
+     res.send({
+       status: "error",
+       message:"Overflow" ,
+       result:undefined
+     });
+     return;
+  } else if (num1<-1000000 || num2<-1000000 ){
+    res.send({
+      status: "error",
+      message:"Underflow",
+      result:undefined
+    });
+    return;
+  } else {
+    res.send({
+      status:"success ",
+      message: "the division of given two numbers",
+      result: division
+    });
+  }
+});
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))
 
