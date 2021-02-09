@@ -142,6 +142,7 @@ app.post('/multiply',(req,res)=>{
       sum: result
     });
   }
+});
 
   app.post('/divide',(req,res)=>{
     let num1=(req.body.num1);
@@ -192,16 +193,8 @@ app.post('/multiply',(req,res)=>{
       });
     }
   
-  
-  
   });
   
-
-
-
-});
-
-
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))
 
