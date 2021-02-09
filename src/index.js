@@ -95,7 +95,7 @@ app.post('/sub',(req,res)=>{
     res.send({
       status:"success ",
       message: "the difference of given two numbers",
-      sum: result
+      difference: result
     });
   }
 
@@ -112,7 +112,7 @@ app.post('/multiply',(req,res)=>{
     res.send( {  
       status: "failure",
       message: "Invalid data types"  ,
-      sum: undefined
+      result: undefined
     });
     return;
   }
@@ -139,7 +139,7 @@ app.post('/multiply',(req,res)=>{
     res.send({
       status:"success ",
       message: "the product of given two numbers",
-      sum: result
+      result: result
     });
   }
 });
@@ -189,7 +189,7 @@ app.post('/multiply',(req,res)=>{
       res.send({
         status:"success ",
         message: "the division of given two numbers",
-        sum: result
+        result: result
       });
     }
   
