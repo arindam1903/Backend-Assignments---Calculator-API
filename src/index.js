@@ -167,7 +167,7 @@ app.post('/multiply',(req,res)=>{
       return;
     }
   
-   else if (num1>1000000 || num2>1000000 ||result>1000000){
+   else if (num1>1000000 || num2>1000000 ){
        res.send({
          status: "error",
          message:"Overflow",
@@ -176,7 +176,7 @@ app.post('/multiply',(req,res)=>{
        return;
     }
   
-    else if (num1<-1000000 || num2<-1000000 ||result<-1000000){
+    else if (num1<-1000000 || num2<-1000000 ){
       res.send({
         status: "error",
         message:"Underflow",
