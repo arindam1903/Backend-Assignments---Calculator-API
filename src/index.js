@@ -123,7 +123,7 @@ app.post('/multiply',(req,res)=>{
   } else {
     res.send({
       status:"success ",
-      message: "the product of given two numbers",
+      message: "The product of given two numbers",
       result: product
     });
   }
@@ -166,7 +166,7 @@ app.post('/divide',(req,res)=>{
   } else {
     res.send({
       status:"success ",
-      message: "the division of given two numbers",
+      message: "The division of given two numbers",
       result: division
     });
   }
