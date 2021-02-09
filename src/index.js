@@ -106,7 +106,7 @@ app.post('/multiply',(req,res)=>{
       result: undefined
     });
     return;
-  } else if (num1>1000000 || num2>1000000 ){
+  } else if (num1>1000000 || num2>1000000 ||product>1000000){
      res.send({
        status: "error",
        message:"Overflow",
